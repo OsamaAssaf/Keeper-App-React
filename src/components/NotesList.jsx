@@ -1,11 +1,16 @@
-import notes from "../notes";
 import Note from "./Note";
 
-function NotesList() {
+function NotesList(props) {
   return (
     <div>
-      {notes.map((note) => (
-        <Note key={note.key} title={note.title} content={note.content} />
+      {props.notes.map((note, index) => (
+        <Note
+          key={index}
+          title={note.title}
+          content={note.content}
+          index={index}
+          onDelete={props.onDelete}
+        />
       ))}
     </div>
   );
